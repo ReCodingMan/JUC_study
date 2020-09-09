@@ -8,7 +8,7 @@ public class Demo01 {
         //自定义线程池
         ExecutorService threadPool = new ThreadPoolExecutor(
                 2,
-                5,
+                Runtime.getRuntime().availableProcessors(),
                 3,
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(3),
