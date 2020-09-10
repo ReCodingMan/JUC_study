@@ -4,11 +4,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Test {
 
-    private static int num = 0;
+    //不加 volatile 程序就会死循环
+    //加 volatile 可以保证可见性
+    private volatile static int num = 0;
 
     public static void main(String[] args) { // main
 
-        new Thread(() -> { // 线程1
+        new Thread(() -> { // 线程1，对主内存的变化不知道
             while (num == 0) {
 
             }
